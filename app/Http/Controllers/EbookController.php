@@ -20,27 +20,29 @@ class EbookController extends Controller
 
         return view('landing-page', compact('show'));
     }
-    
+
     public function regis()
     {
         return view('registrasi');
     }
-    
+
     public function login()
     {
         return view('login');
     }
-    
+
     public function user()
     {
+        $data = CreateCategory::all();
         $show = CreateBook::all();
-        return view('user.dashboard', compact('show'));
+        return view('user.dashboard', compact('show', 'data'));
     }
 
     public function read($id)
     {
+        $data = CreateCategory::all();
         $read = CreateBook::where('id', $id)->first();
-        return view('user.read', compact('read'));
+        return view('user.read', compact('read', 'data'));
     }
 
     public function error()

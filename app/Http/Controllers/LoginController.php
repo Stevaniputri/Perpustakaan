@@ -22,6 +22,7 @@ class LoginController extends Controller
             'no_hp' => 'required',
             'password' => 'required|min:6',
         ]);
+        
         User::create([
             'email' => $request->email,
             'name' => $request->name,
